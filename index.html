@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="mainContainer">
+      <div class="logo">
+        <img src="pokeball.svg" alt="" />
+        <h1>POKEDEX</h1>
+      </div>
+      <div class="container">
+        <div class="details">
+          <h3 id="name"></h3>
+          <p><span id="weight"></span> <span id="height"></span></p>
+          <div class="pokemonType"></div>
+        </div>
+        <div class="pokemonImg"></div>
+        <div class="stats">
+          <ul class="statName">
+            <h4>Base</h4>
+            <li>HP :</li>
+            <li>Attack :</li>
+            <li>Defence :</li>
+            <li>Sp. Attack :</li>
+            <li>Sp. Defence :</li>
+            <li>Speed :</li>
+          </ul>
+
+          <ul class="statValue">
+            <h4>Stats</h4>
+            <li id="hp"></li>
+            <li id="attack"></li>
+            <li id="defence"></li>
+            <li id="spAttack"></li>
+            <li id="spDefence"></li>
+            <li id="speed"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="searchInput">
+        <input
+          type="text"
+          id="pokemonSearch"
+          placeholder="Search Pokemon Name"
+        />
+        <button id="searchBtn">
+          <i
+            class="fa-solid fa-magnifying-glass"
+            style="padding: 10px; background-color: green; color: white"
+          ></i>
+        </button>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

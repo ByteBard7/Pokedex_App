@@ -5,6 +5,7 @@ const weight = document.getElementById("weight");
 const height = document.getElementById("height");
 const pokemonType = document.querySelector(".pokemonType");
 const pokemonImg = document.querySelector(".pokemonImg");
+const container = document.querySelector(".container");
 
 const hp = document.getElementById("hp");
 const attack = document.getElementById("attack");
@@ -25,10 +26,13 @@ function getPokemon() {
   fetch(
     `https://pokeapi.co/api/v2/pokemon/${pokemonSearch.value.toLowerCase()}`
   )
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        alert("No Pokemon Found, Please Enter a Valid Name");
+      }
+      return response.json();
+    })
     .then((data) => {
-      console.log(data);
-
       pokemonName.innerHTML = `
       ${capitalizeFirstLetter(data.name)} 
       <span> # ${data.id}</span>`;
@@ -36,7 +40,12 @@ function getPokemon() {
       height.textContent = `Height : ${data.height}`;
 
       pokemonType.innerHTML = data["types"]
-        .map((obj) => `<span>${obj.type.name}</span>`)
+        .map(
+          (obj) =>
+            `<span class = "type ${
+              obj.type.name
+            }">${obj.type.name.toUpperCase()}</span>`
+        )
         .join("");
 
       pokemonImg.innerHTML = `
@@ -50,6 +59,7 @@ function getPokemon() {
       spDefence.textContent = data.stats[4].base_stat;
       speed.textContent = data.stats[5].base_stat;
     });
+  pokemonSearch.value = "";
 }
 
 function capitalizeFirstLetter(string) {
