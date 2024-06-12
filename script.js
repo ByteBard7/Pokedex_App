@@ -35,7 +35,7 @@ function getPokemon() {
     .then((data) => {
       pokemonName.innerHTML = `
       ${capitalizeFirstLetter(data.name)} 
-      <span> # ${data.id}</span>`;
+      <span> #${data.id}</span>`;
       weight.textContent = `Weight : ${data.weight}`;
       height.textContent = `Height : ${data.height}`;
 
